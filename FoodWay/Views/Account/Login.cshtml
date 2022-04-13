@@ -1,0 +1,43 @@
+﻿@model FoodWay.Data.ViewModels.UserLoginViewModel
+
+@{
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<div class="card login-form">
+    <div class="card-body">
+        <h3 class="card-title text-center font-weight-bold">Log in to DashBoard</h3>
+        <div class="card-text">
+
+            <form asp-controller="Account" asp-action="Login" method="post">
+                <!-- to error: add class "has-danger" -->
+                <div class="form-group">
+                    <label asp-for="Email" class="font-weight-bold"></label>
+                    <input asp-for="Email" class="form-control form-control-sm" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+
+                    <label asp-for="Password" class="font-weight-bold"></label>
+                    <a href="#" style="float:right;font-size:12px;">Forgot password?</a>
+                    <input asp-for="Password" class="form-control form-control-sm" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label font-weight-bold">
+                        <input class="form-check-input" asp-for="RememberMe" /> @Html.DisplayNameFor(model => model.RememberMe)
+                    </label>
+                </div>
+                <input type="submit" class="btn btn-primary btn-block" value="Sign in" />
+                <div class="sign-up">
+                    Don't have an account? <a asp-controller="Account" asp-action="Register">Create One</a>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>
+
+

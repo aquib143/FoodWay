@@ -1,0 +1,40 @@
+﻿@model FoodWay.Data.Models.Category
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="panel panel-headline">
+    <div class="panel-heading">
+        <h2>ADD CATEGORY</h2>
+    </div>
+    <div class="panel-body">
+        <form asp-action="Create">
+            <div class="row">
+                <div class="col-md-12">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label"></label>
+                        <textarea asp-for="Description" class="form-control"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <input type="submit" value="Add" class="btn btn-primary" /> |
+                <a asp-action="Index" class="btn btn-primary">Back to List</a>
+            </div>
+            <br />
+        </form>
+    </div>
+</div>
+

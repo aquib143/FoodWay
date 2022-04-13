@@ -1,0 +1,59 @@
+﻿@model FoodWay.Data.ViewModels.ProductViewModel
+@using FoodWay.Helpers
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="panel panel-headline">
+    <div class="panel-heading">
+        <h2>ADD PRODUCT</h2>
+    </div>
+    <div class="panel-body">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Product.Id" />
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Product.ProductName" class="control-label"></label>
+                        <input asp-for="Product.ProductName" class="form-control" />
+                        <span asp-validation-for="Product.ProductName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Product.SupplierId" class="control-label"></label>
+                        <select asp-for="Product.SupplierId" asp-items="Model.Suppliers.ToSelectListItem()" class="form-control"></select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Product.CategoryId" class="control-label"></label>
+                        <select asp-for="Product.CategoryId" asp-items="Model.Categories.ToSelectListItem()" class="form-control"></select>
+                    </div>
+                </div>
+                <div class="offset-2 col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Product.Unit" class="control-label"></label>
+                        <input asp-for="Product.Unit" class="form-control" />
+                        <span asp-validation-for="Product.Unit" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Product.Price" class="control-label"></label>
+                        <input asp-for="Product.Price" class="form-control" />
+                        <span asp-validation-for="Product.Price" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <input type="submit" value="Update" class="btn btn-primary" /> |
+                <a asp-action="Index" class="btn btn-primary">Back to List</a>
+            </div>
+            <br />
+        </form>
+    </div>
+</div>

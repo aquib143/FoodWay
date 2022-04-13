@@ -1,0 +1,75 @@
+﻿@model IEnumerable<FoodWay.Data.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="panel panel-headline">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-6">
+                <h2>CATEGORY LIST</h2>
+            </div>
+            <div class="col-md-6 col-sm-6 col-6" style="margin-top:12px;">
+                <form class="navbar-form navbar-form-search pull-right">
+                    <div class="input-group">
+                        <input type="text" value="" class="form-control" placeholder="Search ...">
+                        <span class="input-group-btn"><input type="submit" value="Go" class="btn btn-primary" /></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="row p-5">
+            <div class="col-md-6">
+                @*<cs-pager cs-paging-pagenumber=(int)Model.PageNumber
+                          cs-paging-totalitems=(int)Model.TotalItems
+                          cs-paging-pagesize=Model.PageSize
+                          cs-pagenumber-param="pagenumber"
+                          asp-controller="Category"
+                          asp-action="Index">
+                </cs-pager>*@
+            </div>
+            <div class="col-md-6">
+                <br />
+                <p>
+                    <a asp-action="Create" class="btn btn-primary pull-right">Create New</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,48 @@
+﻿@model FoodWay.Data.ViewModels.OrderViewModel
+@using FoodWay.Helpers
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="panel panel-headline">
+    <div class="panel-heading">
+        <h2>ADD ORDER</h2>
+    </div>
+    <div class="panel-body">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Order.CustomerId" class="control-label"></label>
+                        <select asp-for="Order.CustomerId" asp-items="Model.Customers.ToSelectListItem()" class="form-control"></select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Order.EmployeeId" class="control-label"></label>
+                        <select asp-for="Order.EmployeeId" asp-items="Model.Employees.ToSelectListItem()" class="form-control"></select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Order.OrderDate" class="control-label"></label>
+                        <input asp-for="Order.OrderDate" class="form-control" />
+                        <span asp-validation-for="Order.OrderDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Order.ShipperId" class="control-label"></label>
+                        <select asp-for="Order.ShipperId" asp-items="Model.Shippers.ToSelectListItem()" class="form-control"></select>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <input type="submit" value="Add" class="btn btn-primary" /> |
+                <a asp-action="Index" class="btn btn-primary">Back to List</a>
+            </div>
+            <br />
+        </form>
+    </div>
+</div>

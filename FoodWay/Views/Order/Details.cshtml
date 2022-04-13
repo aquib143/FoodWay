@@ -1,0 +1,73 @@
+﻿@model FoodWay.Data.ViewModels.MasterDetailViewModel
+
+@{
+    ViewData["Title"] = "Details";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="panel panel-headline">
+    <div class="panel-heading">
+    </div>
+    <div class="panel-body">
+        <h2>Order by @Model.Order.Customer.Name</h2>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Order.OrderDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Order.OrderDate)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Order.Shipper)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Order.Shipper.Name)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Order.Employee)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Order.Employee.FirstName)
+            </dd>
+        </dl>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Order Number
+                    </th>
+                    <th>
+                        Product Name
+                    </th>
+                    <th>
+                        Quantity
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Order.OrderDetails)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Order.OrderNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.ProductName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quantity)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <a asp-action="Edit" asp-route-id="@Model.Order.Id" class="btn btn-primary">Edit</a> |
+        <a asp-action="Index" class="btn btn-primary">Back to List</a>
+    </div>
+    <br />
+</div>

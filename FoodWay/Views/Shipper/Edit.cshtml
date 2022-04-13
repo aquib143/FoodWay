@@ -1,0 +1,37 @@
+﻿@model FoodWay.Data.Models.Shipper
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="panel panel-headline">
+    <div class="panel-heading">
+        <h2>ADD SHIPPER</h2>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Phone" class="control-label"></label>
+                        <input asp-for="Phone" class="form-control" />
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <input type="submit" value="Update" class="btn btn-primary" /> |
+                        <a asp-action="Index" class="btn btn-primary">Back to List</a>
+                    </div>
+                    <br />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
